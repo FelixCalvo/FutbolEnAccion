@@ -1,0 +1,115 @@
+# Set default behavior to automatically normalize line endings.
+* text=auto
+
+# Unity files
+*.cs text diff=csharp
+*.js text
+*.boo text
+*.compute text
+*.hlsl text
+*.shader text
+*.cginc text
+
+# Unity YAML
+*.meta text
+*.unity text
+*.asset text
+*.prefab text
+*.mat text
+*.anim text
+*.controller text
+*.overrideController text
+*.physicMaterial text
+*.physicsMaterial2D text
+*.playable text
+
+# Unity binary files
+*.cubemap binary
+*.unitypackage binary
+
+# Image formats
+*.psd binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.bmp binary
+*.tga binary
+*.tiff binary
+*.tif binary
+*.iff binary
+*.pict binary
+*.dds binary
+*.xcf binary
+
+# Audio formats
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.aiff binary
+*.aif binary
+*.mod binary
+*.it binary
+*.s3m binary
+*.xm binary
+
+# Video formats
+*.mov binary
+*.avi binary
+*.asf binary
+*.mpg binary
+*.mpeg binary
+*.mp4 binary
+*.flv binary
+*.ogv binary
+
+# 3D formats
+*.3ds binary
+*.3dm binary
+*.max binary
+*.obj binary
+*.fbx binary
+*.dae binary
+*.dxf binary
+*.blend binary
+*.mb binary
+*.ma binary
+
+# Executables
+*.exe binary
+*.dll binary
+*.so binary
+*.pdb binary
+*.mdb binary
+
+# Archives
+*.7z binary
+*.gz binary
+*.rar binary
+*.tar binary
+*.zip binary
+
+# Documents
+*.pdf binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+
+# Unity specific binary files
+*.sbsar binary
+*.substance binary
+*.physicMaterial binary
+*.physicsMaterial2D binary
+
+# Configuration files that should maintain LF endings even on Windows
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.sh text eol=lf
+
+# Files that should maintain CRLF endings
+*.bat text eol=crlf
+*.cmd text eol=crlf
