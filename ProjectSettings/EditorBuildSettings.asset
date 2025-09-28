@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Splash.unity
+    guid: 935a70a526740114097bc64a29cc3b48
+  - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 73ac35166ce89b94f984997bd95f565f
+  - enabled: 1
     path: Assets/Scenes/EstadioFutbol.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 9ce9c277f60d0b54c8efdb9a9a4db8d4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
