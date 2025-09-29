@@ -6,6 +6,9 @@ public class MandoPinball : MonoBehaviour
     [SerializeField] private float velocidadRotacion; // Grados por segundo
     [SerializeField] private float anguloMaximo; // Ángulo máximo cuando se activa (hacia arriba)
     [SerializeField] private float anguloReposo; // Ángulo de reposo (posición inicial, caído)
+    
+    [Header("Fuerza de Impacto")]
+    [SerializeField] private float fuerzaImpacto; // Fuerza extra al golpear el balón
 
     [Header("Controles")]
     [SerializeField] private KeyCode teclaActivar; // Tecla para activar ESTE mando específico
@@ -43,6 +46,31 @@ public class MandoPinball : MonoBehaviour
             
         float nuevoAngulo = Mathf.MoveTowards(anguloActual, anguloObjetivo, velocidadRotacion * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0f, 0f, nuevoAngulo);
+    }
+
+    // Detectar CUALQUIER colisión para diagnosticar
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("COLISION detectada con: " + collision.gameObject.name + " | Tag: " + collision.gameObject.tag);
+        
+        if (collision.gameObject.CompareTag("BalonFutbol"))
+        {
+            Debug.Log("¡ES EL BALON! Aplicando fuerza...");
+            
+            Rigidbody2D balonRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (balonRb != null)
+            {
+                Vector2 direccionGolpe = new Vector2(Random.Range(-1f, 1f), 1f).normalized;
+                balonRb.AddForce(direccionGolpe * fuerzaImpacto, ForceMode2D.Impulse);
+                Debug.Log("Fuerza aplicada: " + fuerzaImpacto);
+            }
+        }
+    }
+
+    // También probar con Triggers por si acaso
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("TRIGGER detectado con: " + collision.gameObject.name + " | Tag: " + collision.gameObject.tag);
     }
 }
 
