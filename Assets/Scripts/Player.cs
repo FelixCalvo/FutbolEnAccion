@@ -5,15 +5,15 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float velocidad;
-    private int puntuacion;
+    //private int puntuacion;
 
-    [SerializeField]
-    private GameObject puntuacionUI;
+    //[SerializeField]
+    //private GameObject puntuacionUI;
 
     void Start()
     {
 
-        this.puntuacion = 0;
+        //this.puntuacion = 0;
     }
 
     // Time.deltaTime = 1  /frames por segundo
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)//cuando entra en colision con otro objeto primer frame
+    /* private void OnCollisionEnter2D(Collision2D collision)//cuando entra en colision con otro objeto primer frame
     {
         //Debug.Log("Colision con: " + collision.gameObject.name);
         //Para sacar por consola el tag
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         {
             //Debug.Log("Dejo de chocar con el balón");
         }
-    }
+    } */
     
 
 }

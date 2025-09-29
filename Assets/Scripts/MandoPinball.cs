@@ -1,0 +1,44 @@
+using UnityEngine;
+
+public class MandoPinball : MonoBehaviour
+{
+    [Header("Configuración del Mando del Pinball")]
+    [SerializeField] private float velocidadRotacion; // Grados por segundo
+    [SerializeField] private float anguloMaximo; // Ángulo máximo cuando se activa (hacia arriba)
+    [SerializeField] private float anguloReposo; // Ángulo de reposo (posición inicial, caído)
+    
+    [Header("Controles")]
+    [SerializeField] private KeyCode teclaActivar; // Tecla para activar el mando
+    
+    private float anguloObjetivo;
+
+    void Start()
+    {
+        // Establecer la posición inicial
+        anguloObjetivo = anguloReposo;
+        transform.rotation = Quaternion.Euler(0f, 0f, anguloReposo);
+    }
+
+    void Update()
+    {
+        // Control de input
+        if (Input.GetKey(teclaActivar))
+        {
+            anguloObjetivo = anguloMaximo; // Rotar hacia arriba cuando se activa
+        }
+        else
+        {
+            anguloObjetivo = anguloReposo; // Volver a la posición de reposo
+        }
+
+        // Aplicar rotación suave
+        float anguloActual = transform.eulerAngles.z;
+        
+        // Convertir ángulo a rango -180 a 180 para mejor interpolación
+        if (anguloActual > 180f)
+            anguloActual -= 360f;
+            
+        float nuevoAngulo = Mathf.MoveTowards(anguloActual, anguloObjetivo, velocidadRotacion * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0f, 0f, nuevoAngulo);
+    }
+}
