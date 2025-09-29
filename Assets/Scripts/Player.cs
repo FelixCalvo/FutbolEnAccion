@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
         //this.puntuacion = 0;
     }
 
-    // Time.deltaTime = 1  /frames por segundo
+    // Time.deltaTime = 1 / frames por segundo
 
     void Update()
     {

@@ -6,10 +6,10 @@ public class MandoPinball : MonoBehaviour
     [SerializeField] private float velocidadRotacion; // Grados por segundo
     [SerializeField] private float anguloMaximo; // Ángulo máximo cuando se activa (hacia arriba)
     [SerializeField] private float anguloReposo; // Ángulo de reposo (posición inicial, caído)
-    
+
     [Header("Controles")]
-    [SerializeField] private KeyCode teclaActivar; // Tecla para activar el mando
-    
+    [SerializeField] private KeyCode teclaActivar; // Tecla para activar ESTE mando específico
+
     private float anguloObjetivo;
 
     void Start()
@@ -19,10 +19,13 @@ public class MandoPinball : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, anguloReposo);
     }
 
-    void Update()
+     void Update()
     {
-        // Control de input
-        if (Input.GetKey(teclaActivar))
+        // Control usando la tecla específica de este mando
+        bool mandoActivado = Input.GetKey(teclaActivar);
+
+        // Determinar ángulo objetivo
+        if (mandoActivado)
         {
             anguloObjetivo = anguloMaximo; // Rotar hacia arriba cuando se activa
         }
@@ -42,3 +45,4 @@ public class MandoPinball : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, nuevoAngulo);
     }
 }
+
