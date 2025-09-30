@@ -48,29 +48,21 @@ public class MandoPinball : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, nuevoAngulo);
     }
 
-    // Detectar CUALQUIER colisión para diagnosticar
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("COLISION detectada con: " + collision.gameObject.name + " | Tag: " + collision.gameObject.tag);
         
         if (collision.gameObject.CompareTag("BalonFutbol"))
         {
-            Debug.Log("¡ES EL BALON! Aplicando fuerza...");
             
             Rigidbody2D balonRb = collision.gameObject.GetComponent<Rigidbody2D>();
             if (balonRb != null)
             {
                 Vector2 direccionGolpe = new Vector2(Random.Range(-1f, 1f), 1f).normalized;
                 balonRb.AddForce(direccionGolpe * fuerzaImpacto, ForceMode2D.Impulse);
-                Debug.Log("Fuerza aplicada: " + fuerzaImpacto);
             }
         }
     }
 
-    // También probar con Triggers por si acaso
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("TRIGGER detectado con: " + collision.gameObject.name + " | Tag: " + collision.gameObject.tag);
-    }
 }
 
